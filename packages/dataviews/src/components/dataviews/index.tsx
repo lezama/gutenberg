@@ -12,7 +12,6 @@ import { useMemo, useState } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import { default as DataViewsBulkActions } from '../dataviews-bulk-actions';
 import DataViewsContext from '../dataviews-context';
 import {
 	default as DataViewsFilters,
@@ -130,7 +129,6 @@ export default function DataViews< Item >( {
 							isShowingFilter={ isShowingFilter }
 						/>
 					</HStack>
-					<DataViewsBulkActions />
 					<HStack
 						spacing={ 1 }
 						expanded={ false }
