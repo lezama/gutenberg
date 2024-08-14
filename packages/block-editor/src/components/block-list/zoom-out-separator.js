@@ -83,11 +83,12 @@ export function ZoomOutSeparator( {
 				<motion.div
 					layout={ ! isReducedMotion }
 					initial={ { height: 0 } }
-					animate={ { height: '20vh' } }
+					animate={ { height: '120px' } }
 					exit={ { height: 0 } }
 					transition={ {
-						duration: 0.25,
-						ease: 'easeInOut',
+						type: 'tween',
+						duration: 0.2,
+						ease: [ 0.6, 0, 0.4, 1 ],
 					} }
 					className="block-editor-block-list__zoom-out-separator"
 				></motion.div>
