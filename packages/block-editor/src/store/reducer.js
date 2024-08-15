@@ -2091,6 +2091,13 @@ export function inserterSearchInputRef( state = { current: null } ) {
 	return state;
 }
 
+export function sectionRootClientId( state = null, action ) {
+	if ( action.type === 'SET_SECTION_ROOT_CLIENT_ID' ) {
+		return action.clientId;
+	}
+	return state;
+}
+
 const combinedReducers = combineReducers( {
 	blocks,
 	isDragging,
@@ -2125,6 +2132,7 @@ const combinedReducers = combineReducers( {
 	registeredInserterMediaCategories,
 	hoveredBlockClientId,
 	inserterSearchInputRef,
+	sectionRootClientId,
 } );
 
 function withAutomaticChangeReset( reducer ) {
