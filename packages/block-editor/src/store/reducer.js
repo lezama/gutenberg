@@ -2091,7 +2091,7 @@ export function inserterSearchInputRef( state = { current: null } ) {
 	return state;
 }
 
-export function sectionRootClientId( state = null, action ) {
+export function sectionRootClientId( state = '', action ) {
 	if ( action.type === 'SET_SECTION_ROOT_CLIENT_ID' ) {
 		return action.clientId;
 	}
