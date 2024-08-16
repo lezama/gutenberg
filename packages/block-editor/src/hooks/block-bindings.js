@@ -310,7 +310,7 @@ export const BlockBindingsPanel = ( { name, metadata } ) => {
 	}
 
 	return (
-		<InspectorControls>
+		<InspectorControls group="bindings">
 			<ToolsPanel
 				label={ __( 'Attributes' ) }
 				resetAll={ () => {
