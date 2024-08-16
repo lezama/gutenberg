@@ -16,6 +16,7 @@ import {
 import { useSelect, useDispatch, useRegistry } from '@wordpress/data';
 import { useContext, Fragment } from '@wordpress/element';
 import { useViewportMatch } from '@wordpress/compose';
+import { store as preferencesStore } from '@wordpress/preferences';
 
 /**
  * Internal dependencies
@@ -207,11 +208,13 @@ export const BlockBindingsPanel = ( { name, metadata } ) => {
 
 	const { updateBlockAttributes } = useDispatch( blockEditorStore );
 
-	const { _id } = useSelect( ( select ) => {
+	const { _id, showBlockBindingsUI } = useSelect( ( select ) => {
 		const { getSelectedBlockClientId } = select( blockEditorStore );
+		const { get } = select( preferencesStore );
 
 		return {
 			_id: getSelectedBlockClientId(),
+			showBlockBindingsUI: get( 'core', 'showBlockBindingsUI' ),
 		};
 	}, [] );
 
@@ -300,8 +303,7 @@ export const BlockBindingsPanel = ( { name, metadata } ) => {
 
 	// Lock the UI when the experiment is not enabled or there are no fields to connect to.
 	const readOnly =
-		! window.__experimentalBlockBindingsUI ||
-		! Object.keys( fieldsList ).length;
+		! showBlockBindingsUI || ! Object.keys( fieldsList ).length;
 
 	if ( readOnly && Object.keys( filteredBindings ).length === 0 ) {
 		return null;
