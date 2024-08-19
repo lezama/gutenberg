@@ -318,7 +318,7 @@ function FieldControl() {
 											icon={ chevronUp }
 											label={ sprintf(
 												/* translators: %s: field label */
-												__( 'Move field %s up' ),
+												__( 'Move %s up' ),
 												field.label
 											) }
 										/>
@@ -358,7 +358,7 @@ function FieldControl() {
 											icon={ chevronDown }
 											label={ sprintf(
 												/* translators: %s: field label */
-												__( 'Move field %s down' ),
+												__( 'Move %s down' ),
 												field.label
 											) }
 										/>{ ' ' }
@@ -382,8 +382,16 @@ function FieldControl() {
 									icon={ isVisible ? seen : unseen }
 									label={
 										isVisible
-											? __( 'Hide field' )
-											: __( 'Show field' )
+											? sprintf(
+													/* translators: %s: field label */
+													__( 'Hide %s' ),
+													field.label
+											  )
+											: sprintf(
+													/* translators: %s: field label */
+													__( 'Show %s' ),
+													field.label
+											  )
 									}
 								/>
 							</HStack>
