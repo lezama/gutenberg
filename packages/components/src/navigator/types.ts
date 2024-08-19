@@ -84,7 +84,7 @@ export type NavigatorContext = Navigator & {
 	match?: string;
 };
 
-export type NavigatorProviderProps = {
+export type NavigatorProps = {
 	/**
 	 * The initial active path.
 	 */
